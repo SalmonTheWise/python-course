@@ -13,3 +13,17 @@ def euclid(n, m):
             else:
                 return euclid(n, m % n)
 
+def prime(n):
+    if n == 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+if __name__ == "__main__":
+    for i in range(2, 1000):
+        if prime(i):
+            print(i)
+
+#print("I'M SO AWESOME, I KNOW HOW MODULES WORK")

@@ -1,4 +1,4 @@
-__author__ = 'jack-a-lynn'
+import requests
 
-import modules
-print(modules.euclid(17, 85))
+r = requests.get('https://www.python.org')
+r.status_code
