@@ -11,7 +11,18 @@ for line in inp:
         else:
             verb += 1
 inp.close()
-cool_comb = ((1, 2, 3, 4, 5, 6, 7,) ** adj)*noun*verb
-print(cool_comb)
+
+import math
+
+if adj < 7:
+    n = adj
+else:
+    n = 7
+adj_comb = 0
+for i in range(n):
+    adj_comb += math.factorial(adj)/(math.factorial(adj-(i+1)))
+
+cool_comb = adj_comb * noun * verb
+print(int(cool_comb))
 
 
