@@ -1,3 +1,4 @@
+import math
 inp = open("dict.txt", "r")
 noun = 0
 adj = 0
@@ -11,9 +12,6 @@ for line in inp:
         else:
             verb += 1
 inp.close()
-
-import math
-
 if adj < 7:
     n = adj
 else:
@@ -21,7 +19,6 @@ else:
 adj_comb = 0
 for i in range(n):
     adj_comb += math.factorial(adj)/(math.factorial(adj-(i+1)))
-
 cool_comb = adj_comb * noun * verb
 print(int(cool_comb))
 
