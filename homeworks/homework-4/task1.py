@@ -6,6 +6,6 @@ for line in inp:
         for word in sentence.split(' '):
             if word[(len(word) - 2):len(word)] in ls:
                     out.write(word + ' ')
-        out.write('\n')
+    out.write('\n')
 inp.close()
 out.close()
