@@ -14,6 +14,7 @@ for i in range(len(list_3)):
 for i in range(len(list_2)):
     all.append(list_2[i])
 
+
 def f(lst):
     elems = {}
     e, em = None, 0
@@ -22,6 +23,7 @@ def f(lst):
         if t > em:
             e, em = i, t
     return em, e
+
 
 l = f(all)
 print(' '.join([str(x) for x in l]))
