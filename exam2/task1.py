@@ -24,3 +24,6 @@ def f(lst):
 
 l = f(all)
 print(' '.join([str(x) for x in l]))
+
+a = sorted(set(all))
+print(a)
