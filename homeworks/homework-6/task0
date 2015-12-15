@@ -21,31 +21,18 @@ def get_links(url):
     return links
 
 
-def game(url_1, url_2):
-    links = get_links(url_1)
-    if url_2 in links:
-        print(url_1)
-        print(url_2)
+def game(url_1, url_2, n):
+    list1 = []
+    print(list1)
+    begin = get_links(url_1)
+    if url_2 in begin:
+        list1 = [url_1, url_2]
     else:
-        for link in links:
-            link2s = get_links(link)
-            if url_2 in link2s:
-                print(url_1)
-                print(link)
-                print(url_2)
-            else:
-                for link2 in link2s:
-                    link3s = get_links(link2)
-                    if url_2 in link3s:
-                        print(url_1)
-                        print(link2)
-                        print(url_2)
-                    else:
-                        for link3 in link3s:
-                            link4s = get_links(link3)
-                            if url_2 in link4s:
-                                print(url_1)
-                                print(link3)
-                                print(url_2)
+        for i in begin:
+            list2 = game(i, url_2, n - 1)
+            if list2:
+                list1 = [url_1] + [list2]
+                break
+    return '\n'.join(list1)
 
-print(game(url_beg, url_end))
+print(game(url_beg, url_end, 3))
