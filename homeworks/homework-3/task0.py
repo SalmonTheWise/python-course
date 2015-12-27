@@ -144,8 +144,8 @@ else:
 
 
 def prod_artist(songs):
-    dict_album_artist = {x.album : x.artist for x in songs}
-    freq = collections.Counter(dict_album_artist.values()).most_common()
+    dict = {x.album : x.artist for x in songs}
+    freq = collections.Counter(dict.values()).most_common()
     return freq
 pa = prod_artist(playlist1)
 pa2 = pa[0]
