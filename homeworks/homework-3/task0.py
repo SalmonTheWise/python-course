@@ -1,6 +1,7 @@
 from random import shuffle
 from operator import attrgetter
 from collections import defaultdict
+from collections import Counter
 import re
 
 
@@ -129,10 +130,17 @@ else:
 # Вывести на экран исполнителя с наибольшим числом альбомов,
 # если таких несколько, то вывести любого из них (artist_name)
 
+album_list1 = []
+for song in playlist1:
+    album_list1.extend((song.album, song.artist))
 
-
-
-
-
-
-
+def common_album(lst):
+    elems = {}
+    e, em = None, 0
+    for i in lst:
+        elems[i] = t = elems.get(i, 0) + 1
+        if t > em:
+            e, em = i, t
+    return e
+c_a = str(common_album(album_list1))
+print(c_a)
