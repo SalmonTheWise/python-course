@@ -1,5 +1,5 @@
 from random import shuffle
-from operator import attrgetter
+import collections
 from collections import defaultdict
 from collections import Counter
 import re
@@ -107,8 +107,9 @@ print(attr[0]+'\t'+attr[1])
 indexed_sums = defaultdict(int)
 for song in playlist1:
     indexed_sums[(song.artist, song.album)] += int(song.duration)
-longest = max(dict(indexed_sums))
-print(longest[0]+'\t'+longest[1])
+longest = dict(indexed_sums)
+lst = max(longest, key=lambda i: longest[i])
+print(lst[1]+'\t'+lst[0])
 
 
 # Вывести на экран 10 слов наиболее встречающихся в названиях песен,
@@ -141,27 +142,11 @@ else:
 # Вывести на экран исполнителя с наибольшим числом альбомов,
 # если таких несколько, то вывести любого из них (artist_name)
 
-album_list1 = []
-for song in playlist1:
-    album_list1.append(str(song.album))
-artist_list = []
-for song in playlist1:
-    artist_list.append(str(song.artist))
 
-c = '*'.join('%s=%s' % t for t in zip(artist_list, album_list1))
-c2 = c.split('*')
-# print(c2)
-
-def common_album(lst):
-    elems = {}
-    e, em = None, 0
-    for i in lst:
-        elems[i] = t = elems.get(i, 0) + 1
-        if t > em:
-            e, em = i, t
-    return e
-c_a = common_album(c2)
-# print(c_a)
-b = str(c_a)
-attr = b.split('=')
-print(attr[0])
+def prod_artist(songs):
+    dict_album_artist = {x.album : x.artist for x in songs}
+    freq = collections.Counter(dict_album_artist.values()).most_common()
+    return freq
+pa = prod_artist(playlist1)
+pa2 = pa[0]
+print(pa2[0])
