@@ -55,11 +55,12 @@ def export_songs(songs, file_names):
 
 
 def shuffle_songs(songs):
-    sh_songs = shuffle(songs)
-    return sh_songs
+    shuffle(songs)
+    return songs
 
 
 shuff_songs = shuffle_songs(playlist1)
+# print(shuff_songs)
 
 
 # Вывести на экран самого часто встречающегося исполнителя (по числу песен),
@@ -85,9 +86,19 @@ print(l)
 
 # Вывести на экран самую длинную песню, если таких несколько, вывести любую из них (song_name (TAB) artist_name)
 
-a = str(max(playlist1, key=attrgetter('duration')))
+tmp = 0
+for song in playlist1:
+    if int(song.duration) > int(tmp):
+        tmp = song.duration
+for x in playlist1:
+    if x.duration == tmp:
+        long_song = x
+        break
+
+a = str(long_song)
 attr = a.split('\t')
 print(attr[0]+'\t'+attr[1])
+
 
 # Вывести на экран самый длинный (по длительности) альбом (песни считаются в одном альбоме,
 # если название альбомов и название исполнителей совпадают), если таких несколько,
@@ -132,7 +143,14 @@ else:
 
 album_list1 = []
 for song in playlist1:
-    album_list1.extend((song.album, song.artist))
+    album_list1.append(str(song.album))
+artist_list = []
+for song in playlist1:
+    artist_list.append(str(song.artist))
+
+c = '*'.join('%s=%s' % t for t in zip(artist_list, album_list1))
+c2 = c.split('*')
+# print(c2)
 
 def common_album(lst):
     elems = {}
@@ -142,5 +160,8 @@ def common_album(lst):
         if t > em:
             e, em = i, t
     return e
-c_a = str(common_album(album_list1))
-print(c_a)
+c_a = common_album(c2)
+# print(c_a)
+b = str(c_a)
+attr = b.split('=')
+print(attr[0])
