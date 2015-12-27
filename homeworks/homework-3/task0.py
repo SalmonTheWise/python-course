@@ -122,10 +122,10 @@ popular_words = sorted(word_counter, key=word_counter.get, reverse=True)
 
 if len(popular_words) > 10:
     top_10 = popular_words[:10]
-    print(top_10)
+    print('\t'.join(top_10))
 else:
     top = popular_words
-    print(top)
+    print('\t'.join(top))
 
 # Вывести на экран исполнителя с наибольшим числом альбомов,
 # если таких несколько, то вывести любого из них (artist_name)
