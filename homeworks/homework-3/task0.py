@@ -1,7 +1,6 @@
 from random import shuffle
 import collections
 from collections import defaultdict
-from collections import Counter
 import re
 
 
@@ -67,14 +66,14 @@ shuff_songs = shuffle_songs(playlist1)
 # если таких несколько, вывести любого из них (artist_name)
 
 artist_name = []
-for song in playlist1:
-    artist_name.append(song.artist)
+for song1 in playlist1:
+    artist_name.append(song1.artist)
 
 
-def find_artist(lst):
+def find_artist(list1):
     elems = {}
     e, em = None, 0
-    for i in lst:
+    for i in list1:
         elems[i] = t = elems.get(i, 0) + 1
         if t > em:
             e, em = i, t
@@ -86,6 +85,7 @@ print(l)
 
 # Вывести на экран самую длинную песню, если таких несколько, вывести любую из них (song_name (TAB) artist_name)
 
+long_song = []
 tmp = 0
 for song in playlist1:
     if int(song.duration) > int(tmp):
@@ -144,8 +144,8 @@ else:
 
 
 def prod_artist(songs):
-    dict = {x.album : x.artist for x in songs}
-    freq = collections.Counter(dict.values()).most_common()
+    dict1 = {x1.album: x1.artist for x1 in songs}
+    freq = collections.Counter(dict1.values()).most_common()
     return freq
 pa = prod_artist(playlist1)
 pa2 = pa[0]
