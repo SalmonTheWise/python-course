@@ -1,4 +1,3 @@
-
 def sum(a, b):
     if type(a) == int and type(b) == int:
         if a >= 0 and b >= 0:
