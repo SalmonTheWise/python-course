@@ -52,3 +52,5 @@ def game(url_1, url_2):
                                 break
 
 print(game(url_beg, url_end))
+
+

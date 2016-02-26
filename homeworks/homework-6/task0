@@ -36,3 +36,5 @@ def game(url_1, url_2, n):
     return '\n'.join(list1)
 
 print(game(url_beg, url_end, 3))
+
+
