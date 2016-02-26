@@ -1,4 +1,3 @@
-__author__ = 'jack-a-lynn'
 
 def sum(a, b):
     if type(a) == int and type(b) == int:
