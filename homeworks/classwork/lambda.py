@@ -33,6 +33,7 @@ for i in my_map(int, ["12", "13", "14"]):
 
 lst = [1, 2, 3, 4, 5, 6, 7, 8]
 
+
 y = list(filter(lambda x: x % 2 == 0, lst))
 print(y)
 
