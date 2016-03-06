@@ -20,23 +20,19 @@ def chk(x):
     else:
         return
 
-q = int(input())
-pairs = []
-for k in range(q):
-    pair = input()
-    pairs.append(pair)
+m = int(input())
+excs = []
+for k in range(m):
+    exc = input()
+    excs.append(exc)
 
 
-for pair in pairs:
+cnt = 0
+for i in excs:
     visited = []
-    ancest, descend = pair.split(' ')
-    chk(descend)
-    if descend == ancest or ancest in visited:
-        print('Yes')
-    else:
-        print('No')
-
-
-
-
-
+    chk(i)
+    for j in visited:
+        if j in excs[:cnt]:
+            print(i)
+            break
+    cnt += 1
