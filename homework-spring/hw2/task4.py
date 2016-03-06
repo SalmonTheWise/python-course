@@ -28,11 +28,11 @@ for k in range(m):
 
 
 cnt = 0
-for i in excs:
+for e in excs:
     visited = []
-    chk(i)
+    chk(e)
     for j in visited:
         if j in excs[:cnt]:
-            print(i)
+            print(e)
             break
     cnt += 1
