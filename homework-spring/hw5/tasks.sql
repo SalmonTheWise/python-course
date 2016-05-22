@@ -22,6 +22,8 @@ GROUP BY name
 ORDER BY nms desc limit 1;
 
 
+
+
 --6. Количество заказов в 2016 году (число)
 SELECT count(*) FROM Orders 
 WHERE created >= date("2016-01-01");
