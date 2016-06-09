@@ -58,15 +58,14 @@ for k in forests:
         random_forest = random_forest.fit(train, train_y)
         validate_y = np.concatenate((np.ones(50), np.zeros(50)))
         predicted_y = random_forest.predict(validate)
-        print(accuracy_score(validate_y, predicted_y))
         scores.append(accuracy_score(validate_y, predicted_y))
-
 
 RF = scores[0:11]
 ET = scores[11:22]
 AB = scores[22:33]
 GB = scores[33:44]
 
+#lets write!
 
 est_accuracy = open('estimators_table.txt', 'w')
 est_accuracy.write('\t'.join(['Forest', 'n=10', 'n=20', 'n=40',

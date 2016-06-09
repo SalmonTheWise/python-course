@@ -18,8 +18,9 @@ parser.add_argument('path',
                     help="Path to the selected file or folder")
 
 parser.add_argument('f', type=str,
+                    choices=['T'],
                     nargs='?',
-                    help="result file")
+                    help="T - write to result file, if not specified, output be printed in console")
 
 
 argts = parser.parse_args()
@@ -32,8 +33,8 @@ grp = 'grep -iE '
 grpf = 'grep -iEr '
 warn = '"warn" '
 err = '"err" '
-warn_err = '"warn\|err" '
-wrt = ' > warn.log'
+warn_err = 'warn\|err '
+wrt = ' > res.log'
 
 if argts.f is None:
 
